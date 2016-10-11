@@ -10,53 +10,61 @@
 using namespace std;
 
 int main() {
-    
-    cout << "Print Distinct Numbers \n";
-    
-    // Initialize data storage
-    const int ARRAY_SIZE = 10;
-    int input_numbers[ARRAY_SIZE];
-    int unique_numbers[ARRAY_SIZE];
-    
-    for (int i = 0; i < ARRAY_SIZE; i++) {
-        input_numbers[i] = 0;
-        unique_numbers[i] = 0;
-    }
-    
-    cout << "Input 10 numbers: " << endl;
-    for (int i = 0; i < ARRAY_SIZE; i++) {
-        cin >> input_numbers[i];
-    }
-    
-    for (int i = 0; i < ARRAY_SIZE; i++) {
-        // test if unique against each stored value
-        bool unique = 1;
-        for (int j = 0; j < ARRAY_SIZE; j++) {
-            if (input_numbers[i] != unique_numbers[j]) {
-                // still unique
-            } else {
-                // not unique, continue
-                unique = 0;
-                continue;
-            }
 
-        }
-        if (unique == 1) {
-            for (int j = 1; j < ARRAY_SIZE; i++) {
-                if (unique_numbers[j] != unique_numbers[j]) {
-                    unique_numbers[j] = input_numbers[i];
-                }
-            }
-        }
-    }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    // Output
-    for (int i = 0; i < ARRAY_SIZE; i++) {
-        cout << unique_numbers[i] << endl;
-    }
-    
-    cout << "~ FIN ~" << endl;
-    
-    
-    return 0;
+	cout << "Print Distinct Numbers \n";
+
+	// Initialize data storage
+	const int ARRAY_SIZE = 10;
+	int input_numbers[ARRAY_SIZE];
+	int unique_numbers[ARRAY_SIZE];
+
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		input_numbers[i] = 0;
+		unique_numbers[i] = 1;
+	}
+
+	cout << "Input array container initialized: " << endl;
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		cout << input_numbers[i] << endl;
+	}
+
+	cout << "Unique number array container initialized: " << endl;
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		cout << unique_numbers[i] << endl;
+	}
+
+	cout << "Input 10 digits: ";
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		cin >> input_numbers[i];
+	}
+
+	cout << "Input array container contents: " << endl;
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		cout << input_numbers[i] << endl;
+	}
+
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		int cur = input_numbers[i];
+		bool is_unique = true; // might not need this
+		// for each i input number, check against all j unique numbers stored
+		for (int j = 0; j < ARRAY_SIZE; j++) {
+			if (cur == unique_numbers[j])
+			{
+				cout << "match found, continue .." << endl;
+				continue; // already logged it, not unique
+			}
+		}
+		// 
+		cout << "end of j for loop ..";
+	}
+
+	// Output
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		cout << unique_numbers[i] << endl;
+	}
+
+	cout << "~ FIN ~" << endl;
+
+
+	return 0;
 }
