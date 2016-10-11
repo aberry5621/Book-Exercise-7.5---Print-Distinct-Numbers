@@ -16,42 +16,50 @@ int main() {
     // Initialize data storage
     const int ARRAY_SIZE = 10;
     int input_numbers[ARRAY_SIZE];
-    int unique_numbers[ARRAY_SIZE];
+    int unique_count = 0;
+    int unique_numbers[10] = {0};
     
     for (int i = 0; i < ARRAY_SIZE; i++) {
         input_numbers[i] = 0;
-        unique_numbers[i] = 0;
     }
     
-    cout << "Input 10 numbers: " << endl;
+    cout << "Input array container initialized: " << endl;
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        cout << input_numbers[i] << endl;
+    }
+    
+    cout << "Input 10 digits: ";
     for (int i = 0; i < ARRAY_SIZE; i++) {
         cin >> input_numbers[i];
     }
     
+    cout << "Input array container contents: " << endl;
     for (int i = 0; i < ARRAY_SIZE; i++) {
-        // test if unique against each stored value
-        bool unique = 1;
+        cout << input_numbers[i] << endl;
+    }
+    
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        int current_number = input_numbers[i];
+        int current_number_occurrences = 0;
         for (int j = 0; j < ARRAY_SIZE; j++) {
-            if (input_numbers[i] != unique_numbers[j]) {
-                // still unique
-            } else {
-                // not unique, continue
-                unique = 0;
-                continue;
+            if (current_number == input_numbers[j]) {
+                current_number_occurrences++;
             }
-
         }
-        if (unique == 1) {
-            for (int j = 1; j < ARRAY_SIZE; i++) {
-                if (unique_numbers[j] != unique_numbers[j]) {
-                    unique_numbers[j] = input_numbers[i];
-                }
-            }
+        if (current_number_occurrences > 1) {
+            // current number is not unique :(
+            // cout << "current number " << current_number << " is not unique" << endl;
+        } else if (current_number_occurrences == 1) {
+            // store current number as a unique value
+            //cout << "current number " << current_number << " is unique and being stored to unique_numbers[] position " << unique_count << endl;
+            unique_numbers[unique_count] = current_number;
+            unique_count++;
         }
     }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    
     // Output
-    for (int i = 0; i < ARRAY_SIZE; i++) {
+    cout << "Unique numbers stored: " << endl;
+    for (int i = 0; i < unique_count; i++) {
         cout << unique_numbers[i] << endl;
     }
     
