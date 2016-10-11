@@ -45,17 +45,26 @@ int main() {
 
 	for (int i = 0; i < ARRAY_SIZE; i++) {
 		int cur = input_numbers[i];
-		bool is_unique = true; // might not need this
-		// for each i input number, check against all j unique numbers stored
+
+		bool is_unique = false; // might not need this
+							   // for each i input number, check against all j unique numbers stored
 		for (int j = 0; j < ARRAY_SIZE; j++) {
+
+			cout << "compare cur: " << cur << " to " << unique_numbers[j] << endl;
+
 			if (cur == unique_numbers[j])
 			{
-				cout << "match found, continue .." << endl;
-				continue; // already logged it, not unique
+				cout << "match found, break .." << endl;
+				break; // already logged it, not unique
+			}
+			else
+			{
+				unique_numbers[j] = cur;
 			}
 		}
+
 		// 
-		cout << "end of j for loop ..";
+		cout << "end of j for loop .." << endl;
 	}
 
 	// Output
